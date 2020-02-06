@@ -15,7 +15,7 @@ function addValue() {
 
     // array = [...array, data]; spread syntax by ES6
     document.getElementsByClassName('inputValue')[0].value = '';
-    result.innerHTML=array.toString();
+    result.innerHTML = array.toString();
 }
 
 function executeSelectionSort() {
@@ -45,6 +45,15 @@ function executeSelectionSort() {
         )
     }
 }
+
+document.querySelector('.banner-btn').addEventListener('click', () => {
+    document.querySelector('.wrapper3').style.display = 'none';
+    document.querySelector('.flow_chart3_1').style.display = 'block';
+});
+document.querySelector('.x-btn').addEventListener('click', () => {
+    document.querySelector('.wrapper3').style.display = 'block';
+    document.querySelector('.flow_chart3_1').style.display = 'none';
+});
 
 // function selection_sort(x){
 //
