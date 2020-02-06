@@ -28,12 +28,9 @@
     }
 
 
-        //未整列の配列データ
+       
 
-      //未整列の部分から値を１つずつ取り出すfor文
-    //   var a = new Array;
-        //   var x = 0;
-        //   a[x]= Number(document.getElementById("output").value);
+     
         
           
      function insertionsort(){
@@ -42,28 +39,30 @@
         a = a.split(' ')
         debugger
        for (var i = 1; i < a.length; i++) {
-           //「挿入する値」を変数に一時保存する
+           //Temporarily save the value to be inserted in a variable
           var tmp = a[i];
 
-    //       //「整列済みの部分」のどこに挿入すれば良いか後ろから前に向かって順番に判断する
+   
+// Judge in order from the back to the front where to insert in the "aligned part
            for (var j = i - 1; j >= 0; j--) {
-             //「挿入する値」が小さい場合、調べた値を１つ後ろへずらす
+             
+// If the value to be inserted is small, shift the checked value one position backward
              if (a[j] > tmp) {
                a[j + 1] = a[j];
              } else {
-               //小さくなければ、ずらす処理を止める
+              //  If small , stop shifting
                break;
              }
-           }
-           //ずらす処理が終わったところに「挿入する値」を入れる
+           }　
+
+// 　Insert "Value to be inserted" at the end of the shifting process
           a[j + 1] = tmp;
          }
-
+ 　　　　　//Display data after sorting  
          document.getElementById("result").innerHTML = a.join(' ');
          console.log(typeof(a));
        }
-   //ソート後のデータを表示
-        
+  
 
     </script>
     
