@@ -1,96 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="tisha.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>tisha</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="./js/home.js"></script>
-    <script type="text/javascript" src="./js/bubble.js"></script>
-    <script type="text/javascript" src="./js/merge.js"></script>
-    <script type="text/javascript" src="./js/selection.js"></script>
-    <script type="text/javascript" src="./js/insertion.js"></script>
-    <script type="text/javascript" src="./js/quick.js"></script>
+
+    <script>
     
-</head>
+            var x=Number();
+            var array=new Array();
 
-<body>
+        function first(){
+            array[x]=Number(document.getElementById("inputnumber").value);
+            x++;
+     　     document.getElementById("inputnumber").value="";
+    　      var e="";
+
+      for(var i=0; i<array.length; i++){
+          e +=array[i]+" ";
+         
+      }
+      document.getElementById("output").innerHTML= e ; 
+      console.log(typeof(e));
+    }
+
+
+        //未整列の配列データ
+
+      //未整列の部分から値を１つずつ取り出すfor文
+    //   var a = new Array;
+        //   var x = 0;
+        //   a[x]= Number(document.getElementById("output").value);
         
-        <nav>
-            <div class="toggle">
-                <div class="menu">&#9776;</div>
-            </div>          
-            <ul>
-                <a href="#home"><li>Home</li></a>                         
-                <a href="#section1"><li>Bubble</li></a>       
-                <a href="#section2"><li>Merge</li></a>       
-                <a href="#section3"><li>Selection</li></a>       
-                <a href="#section4"><li>Insertion</li></a>       
-                <a href="#section5"><li>Quick</li></a>       
-            </ul> 
-              
-            
-          </nav>
-
-    <!--  Follow this structure for your section-->
-    <section id="home">
-        <div class="content">
-            <!-- your content -->
-            <h4>Tisha</h4>            
-            <p class="center"><img class="mate" src="./images/cat.png" alt="ticha"></p> 
-        </div>         
-    </section> 
-
-    <section id="section1">
-        <div class="content">            
-            <h4>Bubble Sort</h4> 
-            <div class="form">
-               
-            </div>                              
-    </section>
-
-    <section id="section2">
-        <div class="content">   
-            <h4>Merge Sort</h4>  
           
-            <div class="form">               
-                  
-            </div> 
-        </div>         
-    </section>
+     function insertionsort(){
+    
+        var a =  document.getElementById("output").innerHTML;
+        a = a.split(' ')
+        debugger
+       for (var i = 1; i < a.length; i++) {
+           //「挿入する値」を変数に一時保存する
+          var tmp = a[i];
 
-    <section id="section3">
-        <div class="content">       
-            <h4>Selection Sort</h4> 
-            <div class="form">
-                
-            </div>  
-        </div>         
-    </section>
+    //       //「整列済みの部分」のどこに挿入すれば良いか後ろから前に向かって順番に判断する
+           for (var j = i - 1; j >= 0; j--) {
+             //「挿入する値」が小さい場合、調べた値を１つ後ろへずらす
+             if (a[j] > tmp) {
+               a[j + 1] = a[j];
+             } else {
+               //小さくなければ、ずらす処理を止める
+               break;
+             }
+           }
+           //ずらす処理が終わったところに「挿入する値」を入れる
+          a[j + 1] = tmp;
+         }
 
-    <section id="section4">
-        <div class="content">       
-            <h4>Insertion Sort</h4>  
-            <div class="form">               
-                
+         document.getElementById("result").innerHTML = a.join(' ');
+         console.log(typeof(a));
+       }
+   //ソート後のデータを表示
+        
+
+    </script>
+    
+
+  </head>
+  <body>
+
+    <div class="insertionsort_part">
+
+        <div class="allcontain">
+
+     
+        <h1 class="menu_insert">Insertion sorting</h1>
+       
+<div class="wrapper">
+
+
+
+        <div class="container">
+            
+           
+
+            <!-- input part -->
+            <div class="input_insert">
+                <p id="input" class="text_insert">Type a number</p>
+                <input type="number" id="inputnumber"  />
             </div>
-        </div>         
-    </section>
-
-    <section id="section5">
-        <div class="content">       
-            <h4>Quick Sort</h4> 
-            <div class="form">
-                
+            
+            <!-- all button -->
+            <div class="button_insert">
+                <!-- add part -->
+                <button id="add" onClick="first();" class="button_insert">Add</button>
+                <!-- sort part -->
+                <button id="sort" onClick="insertionsort();" class="button_insert">Sort</button>
             </div>
-        </div>         
-    </section>
+                
+            <br />
+            <br />
+            
+            <!-- show data  -->
+            <p class="text_insert">Data:</p>
+            <p id="output" ></p>
+            <br />
+            <p class="text_insert">Result:</p>
+            <p id="result"></p>
+            <br />
+            
+        </div>
 
+        <div class="figure">
+            <img src="/image/insertion-sort-1.jpg" alt="figure"　class="example">　
+            <p class="text_insert">Insertion sorting flow</p>
+        </div>
 
-    <footer>Copyright @2020 Tisha. All rights reserved.</footer>
-</body>
-
-</html>
+    </div>  
+</div>
+    </div>
+    </body>
+    </html>
+    
